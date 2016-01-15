@@ -1,4 +1,4 @@
-import * as types from '../constants/TestRunner';
+import * as types from '../constants/testRunner'
 
 /**
  * Currently optional parameter, 'name', will indicate who started test
@@ -6,8 +6,8 @@ import * as types from '../constants/TestRunner';
 export function userStartTests(name) {
   return {
     type: types.USER_START_TESTS,
-    name: name,
-  };
+    name: name
+  }
 }
 
 /**
@@ -15,8 +15,8 @@ export function userStartTests(name) {
  */
 export function userEndTests() {
   return {
-    type: types.USER_END_TESTS,
-  };
+    type: types.USER_END_TESTS
+  }
 }
 
 /**
@@ -26,20 +26,20 @@ export function userEndTests() {
 export function runTest(test) {
   return {
     type: types.TEST_RUNNING,
-    test,
-  };
+    test
+  }
 }
 
 export function testPassed(test) {
   return {
     type: types.TEST_PASSED,
-    test,
-  };
+    test
+  }
 }
 
 export function testFailed(test) {
   return {
     type: types.TEST_FAILED,
-    test,
-  };
+    test
+  }
 }

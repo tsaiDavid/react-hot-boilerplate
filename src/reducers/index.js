@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import testRunnerReducer from './testRunner';
+import { combineReducers } from 'redux'
+import testsReducer from './testsReducer'
 
 export default combineReducers({
-  testRunner: testRunnerReducer,
-});
+  testRunner: testsReducer
+})
