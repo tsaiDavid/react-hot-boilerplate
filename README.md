@@ -1,22 +1,33 @@
-react-hot-boilerplate
+react-redux-testrunner
 =====================
 
 The minimal dev environment to enable live-editing React components.
 
 ### Usage
 
+The first time you use this application, you'll want to install dependencies!
+
 ```
 npm install
+```
+
+You have two options now, you can run in ***dev environment*** or the ***prod environment***.
+
+The development environment gives you Redux DevTools.
+```
+npm run dev
+open http://localhost:3000
+```
+
+To use this application in production mode, simply:
+```
 npm start
 open http://localhost:3000
 ```
 
-Now edit `src/App.js`.  
-Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
-
 ### Linting
 
-This boilerplate project includes React-friendly ESLint configuration.
+This project includes React-friendly ESLint configuration - this can be changed to meet your needs.
 
 ```
 npm run lint
