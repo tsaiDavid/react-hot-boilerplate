@@ -1,22 +1,45 @@
 import * as types from '../constants/TestRunner';
 
-export function addFriend(name) {
+/**
+ * Currently optional parameter, 'name', will indicate who started test
+ */
+export function userStartTests(name) {
   return {
-    type: types.ADD_FRIEND,
-    name
+    type: types.USER_START_TESTS,
+    name: name,
   };
 }
 
-export function deleteFriend(id) {
+/**
+ * Called when the tests are all completed running
+ */
+export function userEndTests() {
   return {
-    type: types.DELETE_FRIEND,
-    id
+    type: types.USER_END_TESTS,
   };
 }
 
-export function starFriend(id) {
+/**
+ * The following 3 functions will create an action indicating its state, whether it's
+ * running, passing, or failing a particular test.
+ */
+export function runTest(test) {
   return {
-    type: types.STAR_FRIEND,
-    id
+    type: types.TEST_RUNNING,
+    test,
+  };
+}
+
+export function testPassed(test) {
+  return {
+    type: types.TEST_PASSED,
+    test,
+  };
+}
+
+export function testFailed(test) {
+  return {
+    type: types.TEST_FAILED,
+    test,
   };
 }
