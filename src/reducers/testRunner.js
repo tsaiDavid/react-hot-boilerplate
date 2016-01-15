@@ -7,7 +7,7 @@ const initialState = {
   tests: {},
 };
 
-export default function testRunnerReducer(state = initalState, action) {
+export default function testRunnerReducer(state = initialState, action) {
   const extendTests = Object.assign({}, state.tests, action.test);
 
   switch (action.type) {
