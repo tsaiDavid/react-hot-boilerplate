@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as ActionCreators from '../actions'
+import { TestsPassed } from '../components/TestsPassed'
 
 const mapStateToProps = (state) => ({
   isRunning: state.testRunner.isRunning,
@@ -13,15 +14,19 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export class TestRunner extends Component {
+  static propTypes = {
+    isRunning: React.PropTypes.bool.isRequired,
+    tests: React.PropTypes.object.isRequired,
+    actions: React.PropTypes.object.isRequired
+  };
 
   render() {
-    console.log(this.props)
-
-
-    for (const test of this.tests) {
-      console.log('running test')
-      test.run()
-    }
+    // console.log(this.props)
+    //
+    // for (const test of this.tests) {
+    //   console.log('running test')
+    //   test.run()
+    // }
 
     return (
       <div>
@@ -32,20 +37,25 @@ export class TestRunner extends Component {
           :
           <h3>You are not currently running any tests!</h3>
         }
+        <TestsPassed passed={this.calculateTotalPassed()}/>
+
         <button onClick={() => this.handleStartTest()}>Start</button>
       </div>
     )
   }
 
-  static PropTypes = {
-    isRunning: React.PropTypes.bool.isRequired,
-    tests: React.PropTypes.object.isRequired,
-    actions: React.PropTypes.object.isRequired
-  };
-
   handleStartTest() {
     const actions = this.props.actions
     actions.userStartTests()
+  }
+
+  calculateTotalPassed() {
+    let total = 0
+    for (const test of this.tests) {
+      // only add to the total if the test passed
+      test.passed ? total++ : null
+    }
+    return total
   }
 
   /**
