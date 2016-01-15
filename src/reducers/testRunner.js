@@ -1,4 +1,4 @@
-import * as types from 'constants/testRunner';
+import * as types from '../constants/testRunner';
 
 const initialState = {
   // Bool to indicate state of overall testing
